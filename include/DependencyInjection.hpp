@@ -33,6 +33,7 @@
 #include <typeinfo>
 #include <typeindex>
 #include <utility>
+#include <vector>
 
 namespace DependencyInjection
 {
