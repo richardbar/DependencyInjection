@@ -207,6 +207,11 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
 template<class TService, class TImplementation>
 DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddSingleton()
 {
+    return this->AddTransient<TService, TImplementation>([] (IServiceProvider&) {
+        auto value = std::make_shared<TImplementation>();
+
+        return value;
+    });
 }
 
 template<class TService, class TImplementation>
