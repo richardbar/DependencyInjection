@@ -39,7 +39,7 @@
 namespace DependencyInjection
 {
     class IServiceProvider;
-
+    
     typedef std::function<std::shared_ptr<void>(IServiceProvider&)> ServiceFactory;
 
     enum class ServiceLifetime : uint8_t
@@ -99,7 +99,7 @@ namespace DependencyInjection
 
         public:
             virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor) = 0;
-            virtual IServiceProvider BuildServiceProvider() const = 0;
+            virtual IServiceProvider BuildServiceProvider() = 0;
     };
 
     class ServiceCollection : public IServiceCollection
@@ -122,7 +122,7 @@ namespace DependencyInjection
             template<class TService, class TImplementation = TService>
             ServiceCollection& AddTransient(const DependencyInjection::ServiceFactory& factory);
 
-            [[nodiscard]] ServiceProvider BuildServiceProvider() const final;
+            [[nodiscard]] ServiceProvider BuildServiceProvider() const;
     };
 }
 
@@ -227,6 +227,6 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
 
 DependencyInjection::ServiceProvider DependencyInjection::ServiceCollection::BuildServiceProvider() const
 {
-}
+    }
 
 #endif
