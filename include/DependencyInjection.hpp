@@ -107,7 +107,7 @@ namespace DependencyInjection
             std::vector<ServiceDescriptor> _serviceDescriptors;
 
         public:
-            IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
+            ServiceCollection& Add(const ServiceDescriptor& serviceDescriptor) final;
 
             template<class TService, class TImplementation = TService>
             ServiceCollection& AddSingleton();
@@ -173,7 +173,7 @@ auto DependencyInjection::ServiceProvider::GetService()
     return std::static_pointer_cast<T>(service);
 }
 
-DependencyInjection::IServiceCollection& DependencyInjection::ServiceCollection::Add(const ServiceDescriptor& serviceDescriptor)
+DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::Add(const ServiceDescriptor& serviceDescriptor)
 {
     this->_serviceDescriptors.push_back(serviceDescriptor);
 
