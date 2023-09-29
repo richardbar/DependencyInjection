@@ -147,14 +147,14 @@ DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<Dependen
 {
     for (const auto& serviceDescriptor : std::ranges::reverse_view(serviceDescriptors))
     {
-        bool serviceDoesntExists = (!_services.contains(serviceDescriptor.GetTypeInfo()));
+        bool serviceDoesntExists = (!this->_services.contains(serviceDescriptor.GetTypeInfo()));
         if (serviceDoesntExists)
         {
-            _services.insert({ serviceDescriptor.GetTypeInfo(), { serviceDescriptor } });
+            this->_services.insert({ serviceDescriptor.GetTypeInfo(), { serviceDescriptor } });
         }
         else
         {
-            _services[serviceDescriptor.GetTypeInfo()].push_back(serviceDescriptor);
+            this->_services[serviceDescriptor.GetTypeInfo()].push_back(serviceDescriptor);
         }
     }
 }
