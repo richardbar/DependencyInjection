@@ -69,6 +69,7 @@ namespace DependencyInjection
         private:
 
         public:
+            virtual std::shared_ptr<void> GetService(const std::type_info& type) = 0;
     };
 }
 
