@@ -108,6 +108,9 @@ namespace DependencyInjection
 
         public:
             IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
+
+            template<class TService, class TImplementation = TService>
+            ServiceCollection& AddSingleton();
     };
 }
 
@@ -172,6 +175,11 @@ DependencyInjection::IServiceCollection& DependencyInjection::ServiceCollection:
     this->_serviceDescriptors.push_back(serviceDescriptor);
 
     return *this;
+}
+
+template<class TService, class TImplementation>
+DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddSingleton()
+{
 }
 
 #endif
