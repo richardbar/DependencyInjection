@@ -99,6 +99,7 @@ namespace DependencyInjection
 
         public:
             virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor) = 0;
+            virtual IServiceProvider BuildServiceProvider() const = 0;
     };
 
     class ServiceCollection : public IServiceCollection
