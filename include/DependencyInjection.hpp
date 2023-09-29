@@ -101,8 +101,7 @@ namespace DependencyInjection
         private:
 
         public:
-            virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor) = 0;
-            virtual IServiceProvider BuildServiceProvider() = 0;
+            virtual DependencyInjection::IServiceCollection& Add(const DependencyInjection::ServiceDescriptor& serviceDescriptor) = 0;
     };
 
     class ServiceCollection : public IServiceCollection
