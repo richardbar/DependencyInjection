@@ -50,6 +50,8 @@ namespace DependencyInjection
             const DependencyInjection::ServiceFactory _factory;
             const DependencyInjection::ServiceLifetime _lifetime;
         public:
+            ServiceDescriptor() = delete;
+
             [[nodiscard]] auto& GetTypeInfo() const;
             [[nodiscard]] auto GetFactory() const;
             [[nodiscard]] auto GetLifetime() const;
