@@ -28,6 +28,7 @@
 
 #include <cstdint>
 #include <functional>
+#include <memory>
 #include <typeinfo>
 #include <typeindex>
 
