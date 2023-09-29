@@ -34,6 +34,8 @@
 
 namespace DependencyInjection
 {
+    typedef std::function<std::shared_ptr<void>(ServiceProvider&)> ServiceFactory;
+    
     enum class ServiceLifetime : uint8_t
     {
         Singleton = 0,
