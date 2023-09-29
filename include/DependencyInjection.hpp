@@ -39,7 +39,8 @@
 namespace DependencyInjection
 {
     class IServiceProvider;
-    
+    class ServiceCollection;
+
     typedef std::function<std::shared_ptr<void>(IServiceProvider&)> ServiceFactory;
 
     enum class ServiceLifetime : uint8_t
@@ -91,6 +92,8 @@ namespace DependencyInjection
 
             template<class T>
             auto GetService();
+
+            friend class DependencyInjection::ServiceCollection;
     };
 
     class IServiceCollection
@@ -227,6 +230,6 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
 
 DependencyInjection::ServiceProvider DependencyInjection::ServiceCollection::BuildServiceProvider() const
 {
-    }
+}
 
 #endif
