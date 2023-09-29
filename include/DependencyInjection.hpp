@@ -111,6 +111,18 @@ auto DependencyInjection::ServiceDescriptor::GetLifetime() const
 
 DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<ServiceDescriptor>& serviceDescriptors)
 {
+    for (const auto& serviceDescriptor : std::ranges::reverse_view(serviceDescriptors))
+    {
+        bool serviceDoesntExists = (!_services.contains(serviceDescriptor.GetType()));
+        if (serviceDoesntExists)
+        {
+            _services.insert({ serviceDescriptor.GetType(), { serviceDescriptor } });
+        }
+        else
+        {
+            _services[serviceDescriptor.GetType()].push_back(serviceDescriptor);
+        }
+    }
 }
 
 std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std::type_info& type)
