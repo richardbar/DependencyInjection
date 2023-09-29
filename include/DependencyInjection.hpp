@@ -35,7 +35,7 @@
 namespace DependencyInjection
 {
     typedef std::function<std::shared_ptr<void>(ServiceProvider&)> ServiceFactory;
-    
+
     enum class ServiceLifetime : uint8_t
     {
         Singleton = 0,
@@ -47,9 +47,11 @@ namespace DependencyInjection
     {
         private:
             const std::type_info& _typeInfo;
+            const DependencyInjection::ServiceFactory _factory;
             const DependencyInjection::ServiceLifetime _lifetime;
         public:
             [[nodiscard]] auto& GetTypeInfo() const;
+            [[nodiscard]] auto GetFactory() const;
             [[nodiscard]] auto GetLifetime() const;
     };
 }
@@ -57,6 +59,11 @@ namespace DependencyInjection
 auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
 {
     return this->_typeInfo;
+}
+
+auto DependencyInjection::ServiceDescriptor::GetFactory() const
+{
+    return this->_factory;
 }
 
 auto DependencyInjection::ServiceDescriptor::GetLifetime() const
