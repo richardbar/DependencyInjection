@@ -41,7 +41,7 @@ namespace DependencyInjection
     class IServiceProvider;
     class ServiceCollection;
 
-    typedef std::function<std::shared_ptr<void>(IServiceProvider&)> ServiceFactory;
+    typedef std::function<std::shared_ptr<void>(DependencyInjection::IServiceProvider&)> ServiceFactory;
 
     enum class ServiceLifetime : uint8_t
     {
@@ -60,7 +60,7 @@ namespace DependencyInjection
             ServiceDescriptor() = delete;
             ServiceDescriptor(const std::type_info& typeInfo,
                     ServiceFactory factory,
-                    const ServiceLifetime lifetime) :
+                    const DependencyInjection::ServiceLifetime lifetime) :
                     _typeInfo{ typeInfo },
                     _factory{ std::move(factory) },
                     _lifetime{ lifetime } { }
@@ -81,9 +81,9 @@ namespace DependencyInjection
     class ServiceProvider : public IServiceProvider
     {
         private:
-            std::map<std::type_index, std::vector<ServiceDescriptor>> _services;
+            std::map<std::type_index, std::vector<DependencyInjection::ServiceDescriptor>> _services;
 
-            explicit ServiceProvider(const std::vector<ServiceDescriptor>& serviceDescriptors);
+            explicit ServiceProvider(const std::vector<DependencyInjection::ServiceDescriptor>& serviceDescriptors);
 
         public:
             ServiceProvider() = delete;
@@ -107,24 +107,24 @@ namespace DependencyInjection
     class ServiceCollection : public IServiceCollection
     {
         private:
-            std::vector<ServiceDescriptor> _serviceDescriptors;
+            std::vector<DependencyInjection::ServiceDescriptor> _serviceDescriptors;
 
         public:
-            ServiceCollection& Add(const ServiceDescriptor& serviceDescriptor) final;
+            DependencyInjection::ServiceCollection& Add(const DependencyInjection::ServiceDescriptor& serviceDescriptor) final;
 
             template<class TService, class TImplementation = TService>
-            ServiceCollection& AddSingleton();
+            DependencyInjection::ServiceCollection& AddSingleton();
 
             template<class TService, class TImplementation = TService>
-            ServiceCollection& AddSingleton(const DependencyInjection::ServiceFactory& factory);
+            DependencyInjection::ServiceCollection& AddSingleton(const DependencyInjection::ServiceFactory& factory);
 
             template<class TService, class TImplementation = TService>
-            ServiceCollection& AddTransient();
+            DependencyInjection::ServiceCollection& AddTransient();
 
             template<class TService, class TImplementation = TService>
-            ServiceCollection& AddTransient(const DependencyInjection::ServiceFactory& factory);
+            DependencyInjection::ServiceCollection& AddTransient(const DependencyInjection::ServiceFactory& factory);
 
-            [[nodiscard]] ServiceProvider BuildServiceProvider() const;
+            [[nodiscard]] DependencyInjection::ServiceProvider BuildServiceProvider() const;
     };
 }
 
@@ -143,7 +143,7 @@ auto DependencyInjection::ServiceDescriptor::GetLifetime() const
     return this->_lifetime;
 }
 
-DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<ServiceDescriptor>& serviceDescriptors)
+DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<DependencyInjection::ServiceDescriptor>& serviceDescriptors)
 {
     for (const auto& serviceDescriptor : std::ranges::reverse_view(serviceDescriptors))
     {
@@ -184,7 +184,7 @@ auto DependencyInjection::ServiceProvider::GetService()
     return std::static_pointer_cast<T>(service);
 }
 
-DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::Add(const ServiceDescriptor& serviceDescriptor)
+DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::Add(const DependencyInjection::ServiceDescriptor& serviceDescriptor)
 {
     this->_serviceDescriptors.push_back(serviceDescriptor);
 
