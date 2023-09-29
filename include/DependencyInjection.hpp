@@ -114,6 +114,9 @@ namespace DependencyInjection
 
             template<class TService, class TImplementation = TService>
             ServiceCollection& AddSingleton(const DependencyInjection::ServiceFactory& factory);
+
+            template<class TService, class TImplementation = TService>
+            ServiceCollection& AddTransient(const DependencyInjection::ServiceFactory& factory);
     };
 }
 
@@ -196,6 +199,11 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
     auto serviceDescriptor = DependencyInjection::ServiceDescriptor(typeid(TService), factory, DependencyInjection::ServiceLifetime::Singleton);
 
     return this->Add(serviceDescriptor);
+}
+
+template<class TService, class TImplementation>
+DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddTransient(const DependencyInjection::ServiceFactory& factory)
+{
 }
 
 #endif
