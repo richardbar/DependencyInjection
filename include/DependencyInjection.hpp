@@ -98,7 +98,7 @@ namespace DependencyInjection
         private:
 
         public:
-
+            virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
     };
 }
 
