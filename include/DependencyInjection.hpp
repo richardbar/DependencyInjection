@@ -34,6 +34,7 @@ namespace DependencyInjection
 {
     enum class ServiceLifetime : uint8_t
     {
+        Transient = 2
     };
 
     class ServiceDescriptor
