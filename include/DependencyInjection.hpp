@@ -120,4 +120,11 @@ std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std
     return service;
 }
 
+template<class T>
+auto DependencyInjection::ServiceDescriptor::GetService()
+{
+    auto service = GetService(typeid(T));
+    return std::static_pointer_cast<T>(service);
+}
+
 #endif
