@@ -101,7 +101,20 @@ auto DependencyInjection::ServiceDescriptor::GetLifetime() const
 
 std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std::type_info& type)
 {
+    auto positionInMap = this->_services.find(type);
+    
+    auto notFound = (positionInMap == this->_services.end());
+    if (notFound)
+    {
+        return nullptr;
+    }
 
+    auto serviceDescriptorList = positionInMap->second;
+    auto firstServiceDescriptor = serviceDescriptorList[0];
+    auto serviceFactory = firstServiceDescriptor.GetFactory();
+    auto service = serviceFactory(*this);
+
+    return service;
 }
 
 #endif
