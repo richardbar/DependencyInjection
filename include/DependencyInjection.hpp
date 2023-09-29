@@ -31,6 +31,7 @@
 #include <memory>
 #include <typeinfo>
 #include <typeindex>
+#include <utility>
 
 namespace DependencyInjection
 {
