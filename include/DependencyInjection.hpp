@@ -92,6 +92,14 @@ namespace DependencyInjection
             template<class T>
             auto GetService();
     };
+
+    class IServiceCollection
+    {
+        private:
+
+        public:
+
+    };
 }
 
 auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
