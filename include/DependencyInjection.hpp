@@ -28,7 +28,11 @@
 
 namespace DependencyInjection
 {
-
+    class ServiceDescriptor
+    {
+        private:
+        public:
+    };
 }
 
 #endif
