@@ -63,6 +63,13 @@ namespace DependencyInjection
             [[nodiscard]] auto GetFactory() const;
             [[nodiscard]] auto GetLifetime() const;
     };
+
+    class IServiceProvider
+    {
+        private:
+
+        public:
+    };
 }
 
 auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
