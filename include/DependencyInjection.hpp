@@ -58,8 +58,8 @@ namespace DependencyInjection
         public:
             ServiceDescriptor() = delete;
             ServiceDescriptor(const std::type_info& typeInfo,
-                ServiceFactory factory,
-                const ServiceLifetime lifetime) :
+                    ServiceFactory factory,
+                    const ServiceLifetime lifetime) :
                     _typeInfo{ typeInfo },
                     _factory{ std::move(factory) },
                     _lifetime{ lifetime } { }
@@ -98,7 +98,7 @@ namespace DependencyInjection
         private:
 
         public:
-            virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
+            virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor) = 0;
     };
 
     class ServiceCollection : public IServiceCollection
@@ -145,7 +145,7 @@ DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<ServiceD
 std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std::type_info& type)
 {
     auto positionInMap = this->_services.find(type);
-    
+
     auto notFound = (positionInMap == this->_services.end());
     if (notFound)
     {
