@@ -26,6 +26,7 @@
 
 #ifdef __cplusplus
 
+#include <cstdint>
 #include <typeinfo>
 #include <typeindex>
 
