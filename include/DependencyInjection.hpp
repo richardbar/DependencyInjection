@@ -204,6 +204,9 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
 template<class TService, class TImplementation>
 DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddTransient(const DependencyInjection::ServiceFactory& factory)
 {
+    auto serviceDescriptor = DependencyInjection::ServiceDescriptor(typeid(TService), factory, DependencyInjection::ServiceLifetime::Singleton);
+
+    return this->Add(serviceDescriptor);
 }
 
 #endif
