@@ -42,8 +42,15 @@ namespace DependencyInjection
     class ServiceDescriptor
     {
         private:
+            const DependencyInjection::ServiceLifetime _lifetime;
         public:
+            [[nodiscard]] auto GetLifetime() const;
     };
+}
+
+auto DependencyInjection::ServiceDescriptor::GetLifetime() const
+{
+    return this->_lifetime;
 }
 
 #endif
