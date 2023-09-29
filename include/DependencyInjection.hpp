@@ -80,6 +80,8 @@ namespace DependencyInjection
             std::map<std::type_index, std::vector<ServiceDescriptor>> _services;
 
         public:
+            ServiceProvider() = delete;
+
             [[nodiscard]] std::shared_ptr<void> GetService(const std::type_info& type);
 
             template<class T>
