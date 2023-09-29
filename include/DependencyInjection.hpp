@@ -169,7 +169,9 @@ auto DependencyInjection::ServiceProvider::GetService()
 
 DependencyInjection::IServiceCollection& DependencyInjection::ServiceCollection::Add(const ServiceDescriptor& serviceDescriptor)
 {
+    this->_serviceDescriptors.push_back(serviceDescriptor);
 
+    return *this;
 }
 
 #endif
