@@ -26,4 +26,9 @@
 
 #ifdef __cplusplus
 
+namespace DependencyInjection
+{
+
+}
+
 #endif
