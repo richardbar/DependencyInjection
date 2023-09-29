@@ -86,7 +86,7 @@ namespace DependencyInjection
 
             template<class T>
             auto GetService();
-    }
+    };
 }
 
 auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
