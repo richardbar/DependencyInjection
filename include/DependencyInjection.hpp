@@ -104,6 +104,7 @@ namespace DependencyInjection
     class ServiceCollection : IServiceCollection
     {
         private:
+            std::vector<ServiceDescriptor> _serviceDescriptors;
 
         public:
             IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
