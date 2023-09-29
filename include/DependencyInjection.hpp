@@ -121,6 +121,8 @@ namespace DependencyInjection
 
             template<class TService, class TImplementation = TService>
             ServiceCollection& AddTransient(const DependencyInjection::ServiceFactory& factory);
+
+            [[nodiscard]] ServiceProvider BuildServiceProvider() const final;
     };
 }
 
@@ -221,6 +223,10 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
     auto serviceDescriptor = DependencyInjection::ServiceDescriptor(typeid(TService), factory, DependencyInjection::ServiceLifetime::Transient);
 
     return this->Add(serviceDescriptor);
+}
+
+DependencyInjection::ServiceProvider DependencyInjection::ServiceCollection::BuildServiceProvider() const
+{
 }
 
 #endif
