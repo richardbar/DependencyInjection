@@ -52,6 +52,12 @@ namespace DependencyInjection
             const DependencyInjection::ServiceLifetime _lifetime;
         public:
             ServiceDescriptor() = delete;
+            ServiceDescriptor(const std::type_info& serviceType,
+                ServiceFactory factory,
+                const ServiceLifetime lifetime) :
+                    _serviceType{ serviceType },
+                    _factory{ std::move(factory) },
+                    _lifetime{ lifetime } { }
 
             [[nodiscard]] auto& GetTypeInfo() const;
             [[nodiscard]] auto GetFactory() const;
