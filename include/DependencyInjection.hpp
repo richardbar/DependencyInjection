@@ -26,6 +26,9 @@
 
 #ifdef __cplusplus
 
+#include <typeinfo>
+#include <typeindex>
+
 namespace DependencyInjection
 {
     class ServiceDescriptor
