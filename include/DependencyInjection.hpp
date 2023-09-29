@@ -100,6 +100,14 @@ namespace DependencyInjection
         public:
             virtual IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
     };
+
+    class ServiceCollection : IServiceCollection
+    {
+        private:
+
+        public:
+            IServiceCollection& Add(const ServiceDescriptor& serviceDescriptor);
+    };
 }
 
 auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
@@ -156,6 +164,11 @@ auto DependencyInjection::ServiceProvider::GetService()
 {
     auto service = GetService(typeid(T));
     return std::static_pointer_cast<T>(service);
+}
+
+DependencyInjection::IServiceCollection& DependencyInjection::ServiceCollection::Add(const ServiceDescriptor& serviceDescriptor)
+{
+
 }
 
 #endif
