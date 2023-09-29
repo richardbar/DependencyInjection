@@ -77,6 +77,7 @@ namespace DependencyInjection
     class ServiceProvider : IServiceProvider
     {
         private:
+            std::map<std::type_index, std::vector<ServiceDescriptor>> _services;
 
         public:
             [[nodiscard]] std::shared_ptr<void> GetService(const std::type_info& type);
