@@ -230,6 +230,7 @@ DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::
 
 DependencyInjection::ServiceProvider DependencyInjection::ServiceCollection::BuildServiceProvider() const
 {
+    return DependencyInjection::ServiceProvider(this->_serviceDescriptors);
 }
 
 #endif
