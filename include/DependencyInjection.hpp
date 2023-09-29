@@ -42,10 +42,17 @@ namespace DependencyInjection
     class ServiceDescriptor
     {
         private:
+            const std::type_info& _typeInfo;
             const DependencyInjection::ServiceLifetime _lifetime;
         public:
+            [[nodiscard]] auto& GetTypeInfo() const;
             [[nodiscard]] auto GetLifetime() const;
     };
+}
+
+auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
+{
+    return this->_typeInfo;
 }
 
 auto DependencyInjection::ServiceDescriptor::GetLifetime() const
