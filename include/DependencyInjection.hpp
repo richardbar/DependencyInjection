@@ -34,6 +34,7 @@ namespace DependencyInjection
 {
     enum class ServiceLifetime : uint8_t
     {
+        Singleton = 0,
         // Scoped = 1,
         Transient = 2
     };
