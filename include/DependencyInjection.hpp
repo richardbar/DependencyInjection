@@ -71,6 +71,14 @@ namespace DependencyInjection
         public:
             virtual std::shared_ptr<void> GetService(const std::type_info& type) = 0;
     };
+
+    class ServiceProvider : IServiceProvider
+    {
+        private:
+
+        public:
+            [[nodiscard]] std::shared_ptr<void> GetService(const std::type_info& type);
+    }
 }
 
 auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
@@ -86,6 +94,11 @@ auto DependencyInjection::ServiceDescriptor::GetFactory() const
 auto DependencyInjection::ServiceDescriptor::GetLifetime() const
 {
     return this->_lifetime;
+}
+
+std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std::type_info& type)
+{
+
 }
 
 #endif
