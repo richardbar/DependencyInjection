@@ -30,6 +30,7 @@
 #include <functional>
 #include <map>
 #include <memory>
+#include <ranges>
 #include <typeinfo>
 #include <typeindex>
 #include <utility>
