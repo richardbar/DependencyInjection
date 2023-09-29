@@ -32,6 +32,10 @@
 
 namespace DependencyInjection
 {
+    enum class ServiceLifetime : uint8_t
+    {
+    };
+
     class ServiceDescriptor
     {
         private:
