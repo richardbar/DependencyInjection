@@ -123,7 +123,7 @@ std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std
 }
 
 template<class T>
-auto DependencyInjection::ServiceDescriptor::GetService()
+auto DependencyInjection::ServiceProvider::GetService()
 {
     auto service = GetService(typeid(T));
     return std::static_pointer_cast<T>(service);
