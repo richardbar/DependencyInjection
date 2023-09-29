@@ -81,6 +81,9 @@ namespace DependencyInjection
 
         public:
             [[nodiscard]] std::shared_ptr<void> GetService(const std::type_info& type);
+
+            template<class T>
+            auto GetService();
     }
 }
 
