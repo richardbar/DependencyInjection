@@ -81,6 +81,8 @@ namespace DependencyInjection
         private:
             std::map<std::type_index, std::vector<ServiceDescriptor>> _services;
 
+            explicit ServiceProvider(const std::vector<ServiceDescriptor>& serviceDescriptors);
+
         public:
             ServiceProvider() = delete;
 
@@ -104,6 +106,10 @@ auto DependencyInjection::ServiceDescriptor::GetFactory() const
 auto DependencyInjection::ServiceDescriptor::GetLifetime() const
 {
     return this->_lifetime;
+}
+
+DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<ServiceDescriptor>& serviceDescriptors)
+{
 }
 
 std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std::type_info& type)
