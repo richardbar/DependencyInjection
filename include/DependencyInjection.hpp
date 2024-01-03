@@ -26,10 +26,10 @@
 
 #ifdef __cplusplus
 
+#include <any>
 #include <cstdint>
 #include <functional>
 #include <map>
-#include <memory>
 #include <ranges>
 #include <typeinfo>
 #include <typeindex>
@@ -41,7 +41,7 @@ namespace DependencyInjection
     class IServiceProvider;
     class ServiceCollection;
 
-    typedef std::function<std::shared_ptr<void>(DependencyInjection::IServiceProvider&)> ServiceFactory;
+    typedef std::function<std::any(IServiceProvider&)> ServiceFactory;
 
     enum class ServiceLifetime : uint8_t
     {
@@ -54,182 +54,163 @@ namespace DependencyInjection
     {
         private:
             const std::type_info& _typeInfo;
-            const DependencyInjection::ServiceFactory _factory;
-            const DependencyInjection::ServiceLifetime _lifetime;
+            const ServiceFactory _factory;
+            const ServiceLifetime _lifetime;
+
         public:
             ServiceDescriptor() = delete;
-            ServiceDescriptor(const std::type_info& typeInfo,
-                    ServiceFactory factory,
-                    const DependencyInjection::ServiceLifetime lifetime) :
+            ServiceDescriptor(const std::type_info& typeInfo, ServiceFactory factory, const ServiceLifetime lifetime) :
                     _typeInfo{ typeInfo },
                     _factory{ std::move(factory) },
                     _lifetime{ lifetime } { }
+            ServiceDescriptor(const ServiceDescriptor& obj) = default;
+            ServiceDescriptor(ServiceDescriptor&& deadObj) noexcept = default;
 
-            [[nodiscard]] auto& GetTypeInfo() const;
-            [[nodiscard]] auto GetFactory() const;
-            [[nodiscard]] auto GetLifetime() const;
+            [[nodiscard]] auto& GetTypeInfo() const
+            {
+                return _typeInfo;
+            }
+            [[nodiscard]] auto GetFactory() const
+            {
+                return _factory;
+            }
+            [[nodiscard]] auto GetLifetime() const
+            {
+                return _lifetime;
+            }
+
+            ServiceFactory& operator=(const ServiceFactory&) = delete;
+            ServiceFactory& operator=(ServiceFactory&&) noexcept = delete;
     };
 
     class IServiceProvider
     {
-        private:
-
         public:
-            virtual std::shared_ptr<void> GetService(const std::type_info& type) = 0;
+            virtual std::any GetService(const std::type_info& type) = 0;
     };
 
     class ServiceProvider : public IServiceProvider
     {
         private:
-            std::map<std::type_index, std::vector<DependencyInjection::ServiceDescriptor>> _services;
+            std::map<std::type_index, std::vector<ServiceDescriptor>> _services;
 
-            explicit ServiceProvider(const std::vector<DependencyInjection::ServiceDescriptor>& serviceDescriptors);
+            explicit ServiceProvider(const std::vector<ServiceDescriptor>& descriptors)
+            {
+                using std::ranges::reverse_view;
+
+                for (const auto& descriptor : reverse_view(descriptors))
+                {
+                    const auto& typeInfo = descriptor.GetTypeInfo();
+                    bool serviceExists = _services.contains(typeInfo);
+                    if (serviceExists)
+                    {
+                        _services[typeInfo].push_back(descriptor);
+                    }
+                    else
+                    {
+                        _services.insert({ typeInfo, { descriptor }});
+                    }
+                }
+            }
 
         public:
             ServiceProvider() = delete;
 
-            [[nodiscard]] std::shared_ptr<void> GetService(const std::type_info& type) final;
+            [[nodiscard]] std::any GetService(const std::type_info& type) final
+            {
+                const auto position = _services.find(type);
+                const auto notFound = (position == _services.end());
+                if (notFound)
+                {
+                    return {};
+                }
+
+                const auto descriptorList = position->second;
+                const auto& descriptor = descriptorList[0];
+                const auto factory = descriptor.GetFactory();
+                auto service = factory(*this);
+
+                return service;
+            }
+
 
             template<class T>
-            auto GetService();
+            auto GetService()
+            {
+                auto service = GetService(typeid(T));
+                return std::any_cast<T>(service);
+            }
 
-            friend class DependencyInjection::ServiceCollection;
+            friend class ServiceCollection;
     };
 
     class IServiceCollection
     {
-        private:
-
         public:
-            virtual DependencyInjection::IServiceCollection& Add(const DependencyInjection::ServiceDescriptor& serviceDescriptor) = 0;
+            virtual IServiceCollection& Add(const ServiceDescriptor& descriptor) = 0;
     };
 
     class ServiceCollection : public IServiceCollection
     {
         private:
-            std::vector<DependencyInjection::ServiceDescriptor> _serviceDescriptors;
+            std::vector<ServiceDescriptor> _descriptors;
 
         public:
-            DependencyInjection::ServiceCollection& Add(const DependencyInjection::ServiceDescriptor& serviceDescriptor) final;
+            ServiceCollection& Add(const ServiceDescriptor& descriptor) final
+            {
+                _descriptors.push_back(descriptor);
+                return *this;
+            }
 
             template<class TService, class TImplementation = TService>
-            DependencyInjection::ServiceCollection& AddSingleton();
+            ServiceCollection& AddSingleton()
+            {
+                const auto factory = [] (IServiceProvider&)
+                {
+                    static const auto& service = TImplementation();
+                    return service;
+                };
+                return AddSingleton<TService, TImplementation>(factory);
+            }
 
             template<class TService, class TImplementation = TService>
-            DependencyInjection::ServiceCollection& AddSingleton(const DependencyInjection::ServiceFactory& factory);
+            ServiceCollection& AddSingleton(const ServiceFactory& factory)
+            {
+                const ServiceDescriptor descriptor {
+                    typeid(TService),
+                    factory,
+                    ServiceLifetime::Singleton
+                };
+                return Add(descriptor);
+            }
 
             template<class TService, class TImplementation = TService>
-            DependencyInjection::ServiceCollection& AddTransient();
+            ServiceCollection& AddTransient()
+            {
+                const auto factory = [] (IServiceProvider&)
+                {
+                    TImplementation service;
+                    return service;
+                };
+                return AddTransient<TService, TImplementation>(factory);
+            }
 
             template<class TService, class TImplementation = TService>
-            DependencyInjection::ServiceCollection& AddTransient(const DependencyInjection::ServiceFactory& factory);
+            ServiceCollection& AddTransient(const ServiceFactory& factory)
+            {
+                const ServiceDescriptor descriptor {
+                    typeid(TService),
+                    factory,
+                    ServiceLifetime::Transient
+                };
+                return Add(descriptor);
+            }
 
-            [[nodiscard]] DependencyInjection::ServiceProvider BuildServiceProvider() const;
+            [[nodiscard]] ServiceProvider BuildServiceProvider() const
+            {
+                return ServiceProvider(_descriptors);
+            }
     };
-}
-
-auto& DependencyInjection::ServiceDescriptor::GetTypeInfo() const
-{
-    return this->_typeInfo;
-}
-
-auto DependencyInjection::ServiceDescriptor::GetFactory() const
-{
-    return this->_factory;
-}
-
-auto DependencyInjection::ServiceDescriptor::GetLifetime() const
-{
-    return this->_lifetime;
-}
-
-DependencyInjection::ServiceProvider::ServiceProvider(const std::vector<DependencyInjection::ServiceDescriptor>& serviceDescriptors)
-{
-    for (const auto& serviceDescriptor : std::ranges::reverse_view(serviceDescriptors))
-    {
-        bool serviceDoesntExists = (!this->_services.contains(serviceDescriptor.GetTypeInfo()));
-        if (serviceDoesntExists)
-        {
-            this->_services.insert({ serviceDescriptor.GetTypeInfo(), { serviceDescriptor } });
-        }
-        else
-        {
-            this->_services[serviceDescriptor.GetTypeInfo()].push_back(serviceDescriptor);
-        }
-    }
-}
-
-std::shared_ptr<void> DependencyInjection::ServiceProvider::GetService(const std::type_info& type)
-{
-    auto positionInMap = this->_services.find(type);
-
-    auto notFound = (positionInMap == this->_services.end());
-    if (notFound)
-    {
-        return nullptr;
-    }
-
-    auto serviceDescriptorList = positionInMap->second;
-    auto firstServiceDescriptor = serviceDescriptorList[0];
-    auto serviceFactory = firstServiceDescriptor.GetFactory();
-    auto service = serviceFactory(*this);
-
-    return service;
-}
-
-template<class T>
-auto DependencyInjection::ServiceProvider::GetService()
-{
-    auto service = GetService(typeid(T));
-    return std::static_pointer_cast<T>(service);
-}
-
-DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::Add(const DependencyInjection::ServiceDescriptor& serviceDescriptor)
-{
-    this->_serviceDescriptors.push_back(serviceDescriptor);
-
-    return *this;
-}
-
-template<class TService, class TImplementation>
-DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddSingleton()
-{
-    return this->AddSingleton<TService, TImplementation>([] (IServiceProvider&) {
-        static auto value = std::make_shared<TImplementation>();
-
-        return value;
-    });
-}
-
-template<class TService, class TImplementation>
-DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddSingleton(const DependencyInjection::ServiceFactory& factory)
-{
-    auto serviceDescriptor = DependencyInjection::ServiceDescriptor(typeid(TService), factory, DependencyInjection::ServiceLifetime::Singleton);
-
-    return this->Add(serviceDescriptor);
-}
-
-template<class TService, class TImplementation>
-DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddTransient()
-{
-    return this->AddTransient<TService, TImplementation>([] (IServiceProvider&) {
-        auto value = std::make_shared<TImplementation>();
-
-        return value;
-    });
-}
-
-template<class TService, class TImplementation>
-DependencyInjection::ServiceCollection& DependencyInjection::ServiceCollection::AddTransient(const DependencyInjection::ServiceFactory& factory)
-{
-    auto serviceDescriptor = DependencyInjection::ServiceDescriptor(typeid(TService), factory, DependencyInjection::ServiceLifetime::Transient);
-
-    return this->Add(serviceDescriptor);
-}
-
-DependencyInjection::ServiceProvider DependencyInjection::ServiceCollection::BuildServiceProvider() const
-{
-    return DependencyInjection::ServiceProvider(this->_serviceDescriptors);
 }
 
 #endif
