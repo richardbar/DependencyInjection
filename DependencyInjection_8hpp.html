@@ -81,10 +81,10 @@ $(function() {
   <div class="headertitle"><div class="title">DependencyInjection.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<div class="textblock"><code>#include &lt;any&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
 <code>#include &lt;typeinfo&gt;</code><br />
 <code>#include &lt;typeindex&gt;</code><br />
@@ -113,8 +113,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab3722833eae078262bfb8a8fcc50eb07"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; std::shared_ptr&lt; void &gt;(<a class="el" href="classDependencyInjection_1_1IServiceProvider.html">DependencyInjection::IServiceProvider</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDependencyInjection.html#ab3722833eae078262bfb8a8fcc50eb07">DependencyInjection::ServiceFactory</a></td></tr>
-<tr class="separator:ab3722833eae078262bfb8a8fcc50eb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a5a7abd41157921215057c00b06b21"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; std::any(IServiceProvider &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDependencyInjection.html#a03a5a7abd41157921215057c00b06b21">DependencyInjection::ServiceFactory</a></td></tr>
+<tr class="separator:a03a5a7abd41157921215057c00b06b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>

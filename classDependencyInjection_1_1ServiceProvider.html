@@ -98,32 +98,32 @@ Inheritance diagram for DependencyInjection::ServiceProvider:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afc5920f4ea51cef193ca0ab2ac8c9659"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#afc5920f4ea51cef193ca0ab2ac8c9659">ServiceProvider</a> ()=delete</td></tr>
 <tr class="separator:afc5920f4ea51cef193ca0ab2ac8c9659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a087b159a0de93002fa661b730240e74a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#a087b159a0de93002fa661b730240e74a">GetService</a> (const std::type_info &amp;type) final</td></tr>
-<tr class="separator:a087b159a0de93002fa661b730240e74a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfdecb4e347eea23f879217fc7a453bb"><td class="memItemLeft" align="right" valign="top">std::any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#abfdecb4e347eea23f879217fc7a453bb">GetService</a> (const std::type_info &amp;type) final</td></tr>
+<tr class="separator:abfdecb4e347eea23f879217fc7a453bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc7cecba512155f03914ed991a41c34c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:abc7cecba512155f03914ed991a41c34c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#abc7cecba512155f03914ed991a41c34c">GetService</a> ()</td></tr>
 <tr class="separator:abc7cecba512155f03914ed991a41c34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96d2bbf1ebc2fb9f46c7d0ccb4b77d20"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1IServiceProvider.html#a96d2bbf1ebc2fb9f46c7d0ccb4b77d20">GetService</a> (const std::type_info &amp;type)=0</td></tr>
-<tr class="separator:a96d2bbf1ebc2fb9f46c7d0ccb4b77d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af168e4a3e636ab82d3438ad23477f87c"><td class="memItemLeft" align="right" valign="top">virtual std::any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1IServiceProvider.html#af168e4a3e636ab82d3438ad23477f87c">GetService</a> (const std::type_info &amp;type)=0</td></tr>
+<tr class="separator:af168e4a3e636ab82d3438ad23477f87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a4e787c65420f59cde3f9fbb0127762bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#a4e787c65420f59cde3f9fbb0127762bc">ServiceProvider</a> (const std::vector&lt; <a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">DependencyInjection::ServiceDescriptor</a> &gt; &amp;serviceDescriptors)</td></tr>
-<tr class="separator:a4e787c65420f59cde3f9fbb0127762bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44e4a0cfcfd21676015f3d60f1d90d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#ad44e4a0cfcfd21676015f3d60f1d90d3">ServiceProvider</a> (const std::vector&lt; <a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">ServiceDescriptor</a> &gt; &amp;descriptors)</td></tr>
+<tr class="separator:ad44e4a0cfcfd21676015f3d60f1d90d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ac098887bd55f0a157cef04fde6df084e"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::type_index, std::vector&lt; <a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">DependencyInjection::ServiceDescriptor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">_services</a></td></tr>
-<tr class="separator:ac098887bd55f0a157cef04fde6df084e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7af86a4e3019f8b76548d89de79c408c"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::type_index, std::vector&lt; <a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">ServiceDescriptor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">_services</a></td></tr>
+<tr class="separator:a7af86a4e3019f8b76548d89de79c408c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a8cba3cfae47c0b56857b4ee3be752b35"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#a8cba3cfae47c0b56857b4ee3be752b35">DependencyInjection::ServiceCollection</a></td></tr>
-<tr class="separator:a8cba3cfae47c0b56857b4ee3be752b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd0014a813ca86fe63766562d1b22319"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDependencyInjection_1_1ServiceProvider.html#acd0014a813ca86fe63766562d1b22319">ServiceCollection</a></td></tr>
+<tr class="separator:acd0014a813ca86fe63766562d1b22319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4e787c65420f59cde3f9fbb0127762bc" name="a4e787c65420f59cde3f9fbb0127762bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e787c65420f59cde3f9fbb0127762bc">&#9670;&#160;</a></span>ServiceProvider() <span class="overload">[1/2]</span></h2>
+<a id="ad44e4a0cfcfd21676015f3d60f1d90d3" name="ad44e4a0cfcfd21676015f3d60f1d90d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44e4a0cfcfd21676015f3d60f1d90d3">&#9670;&#160;</a></span>ServiceProvider() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,32 +134,35 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">DependencyInjection::ServiceProvider::ServiceProvider </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">DependencyInjection::ServiceDescriptor</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>serviceDescriptors</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">ServiceDescriptor</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>descriptors</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  147</span>{</div>
-<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; serviceDescriptor : std::ranges::reverse_view(serviceDescriptors))</div>
-<div class="line"><span class="lineno">  149</span>    {</div>
-<div class="line"><span class="lineno">  150</span>        <span class="keywordtype">bool</span> serviceDoesntExists = (!this-&gt;<a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">_services</a>.contains(serviceDescriptor.GetTypeInfo()));</div>
-<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">if</span> (serviceDoesntExists)</div>
-<div class="line"><span class="lineno">  152</span>        {</div>
-<div class="line"><span class="lineno">  153</span>            this-&gt;<a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">_services</a>.insert({ serviceDescriptor.GetTypeInfo(), { serviceDescriptor } });</div>
-<div class="line"><span class="lineno">  154</span>        }</div>
-<div class="line"><span class="lineno">  155</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  156</span>        {</div>
-<div class="line"><span class="lineno">  157</span>            this-&gt;<a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">_services</a>[serviceDescriptor.GetTypeInfo()].push_back(serviceDescriptor);</div>
-<div class="line"><span class="lineno">  158</span>        }</div>
-<div class="line"><span class="lineno">  159</span>    }</div>
-<div class="line"><span class="lineno">  160</span>}</div>
-<div class="ttc" id="aclassDependencyInjection_1_1ServiceProvider_html_ac098887bd55f0a157cef04fde6df084e"><div class="ttname"><a href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">DependencyInjection::ServiceProvider::_services</a></div><div class="ttdeci">std::map&lt; std::type_index, std::vector&lt; DependencyInjection::ServiceDescriptor &gt; &gt; _services</div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:84</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>            {</div>
+<div class="line"><span class="lineno">   99</span>                <span class="keyword">using </span>std::ranges::reverse_view;</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; descriptor : reverse_view(descriptors))</div>
+<div class="line"><span class="lineno">  102</span>                {</div>
+<div class="line"><span class="lineno">  103</span>                    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; typeInfo = descriptor.GetTypeInfo();</div>
+<div class="line"><span class="lineno">  104</span>                    <span class="keywordtype">bool</span> serviceExists = <a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">_services</a>.contains(typeInfo);</div>
+<div class="line"><span class="lineno">  105</span>                    <span class="keywordflow">if</span> (serviceExists)</div>
+<div class="line"><span class="lineno">  106</span>                    {</div>
+<div class="line"><span class="lineno">  107</span>                        <a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">_services</a>[typeInfo].push_back(descriptor);</div>
+<div class="line"><span class="lineno">  108</span>                    }</div>
+<div class="line"><span class="lineno">  109</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  110</span>                    {</div>
+<div class="line"><span class="lineno">  111</span>                        <a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">_services</a>.insert({ typeInfo, { descriptor }});</div>
+<div class="line"><span class="lineno">  112</span>                    }</div>
+<div class="line"><span class="lineno">  113</span>                }</div>
+<div class="line"><span class="lineno">  114</span>            }</div>
+<div class="ttc" id="aclassDependencyInjection_1_1ServiceProvider_html_a7af86a4e3019f8b76548d89de79c408c"><div class="ttname"><a href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">DependencyInjection::ServiceProvider::_services</a></div><div class="ttdeci">std::map&lt; std::type_index, std::vector&lt; ServiceDescriptor &gt; &gt; _services</div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:95</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -196,22 +199,33 @@ Friends</h2></td></tr>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto DependencyInjection::ServiceProvider::GetService</td>
+          <td class="memname">auto DependencyInjection::ServiceProvider::GetService </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  182</span>{</div>
-<div class="line"><span class="lineno">  183</span>    <span class="keyword">auto</span> service = <a class="code hl_function" href="classDependencyInjection_1_1ServiceProvider.html#abc7cecba512155f03914ed991a41c34c">GetService</a>(<span class="keyword">typeid</span>(T));</div>
-<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">return</span> std::static_pointer_cast&lt;T&gt;(service);</div>
-<div class="line"><span class="lineno">  185</span>}</div>
-<div class="ttc" id="aclassDependencyInjection_1_1ServiceProvider_html_abc7cecba512155f03914ed991a41c34c"><div class="ttname"><a href="classDependencyInjection_1_1ServiceProvider.html#abc7cecba512155f03914ed991a41c34c">DependencyInjection::ServiceProvider::GetService</a></div><div class="ttdeci">auto GetService()</div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:181</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  139</span>            {</div>
+<div class="line"><span class="lineno">  140</span>                <span class="keyword">auto</span> service = <a class="code hl_function" href="classDependencyInjection_1_1ServiceProvider.html#abc7cecba512155f03914ed991a41c34c">GetService</a>(<span class="keyword">typeid</span>(T));</div>
+<div class="line"><span class="lineno">  141</span>                <span class="keywordflow">return</span> std::any_cast&lt;T&gt;(service);</div>
+<div class="line"><span class="lineno">  142</span>            }</div>
+<div class="ttc" id="aclassDependencyInjection_1_1ServiceProvider_html_abc7cecba512155f03914ed991a41c34c"><div class="ttname"><a href="classDependencyInjection_1_1ServiceProvider.html#abc7cecba512155f03914ed991a41c34c">DependencyInjection::ServiceProvider::GetService</a></div><div class="ttdeci">auto GetService()</div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:138</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a087b159a0de93002fa661b730240e74a" name="a087b159a0de93002fa661b730240e74a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a087b159a0de93002fa661b730240e74a">&#9670;&#160;</a></span>GetService() <span class="overload">[2/2]</span></h2>
+<a id="abfdecb4e347eea23f879217fc7a453bb" name="abfdecb4e347eea23f879217fc7a453bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfdecb4e347eea23f879217fc7a453bb">&#9670;&#160;</a></span>GetService() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,7 +234,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; void &gt; DependencyInjection::ServiceProvider::GetService </td>
+          <td class="memname">std::any DependencyInjection::ServiceProvider::GetService </td>
           <td>(</td>
           <td class="paramtype">const std::type_info &amp;&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
@@ -229,34 +243,33 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classDependencyInjection_1_1IServiceProvider.html#a96d2bbf1ebc2fb9f46c7d0ccb4b77d20">DependencyInjection::IServiceProvider</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  163</span>{</div>
-<div class="line"><span class="lineno">  164</span>    <span class="keyword">auto</span> positionInMap = this-&gt;<a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">_services</a>.find(type);</div>
-<div class="line"><span class="lineno">  165</span> </div>
-<div class="line"><span class="lineno">  166</span>    <span class="keyword">auto</span> notFound = (positionInMap == this-&gt;<a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#ac098887bd55f0a157cef04fde6df084e">_services</a>.end());</div>
-<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">if</span> (notFound)</div>
-<div class="line"><span class="lineno">  168</span>    {</div>
-<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  170</span>    }</div>
-<div class="line"><span class="lineno">  171</span> </div>
-<div class="line"><span class="lineno">  172</span>    <span class="keyword">auto</span> serviceDescriptorList = positionInMap-&gt;second;</div>
-<div class="line"><span class="lineno">  173</span>    <span class="keyword">auto</span> firstServiceDescriptor = serviceDescriptorList[0];</div>
-<div class="line"><span class="lineno">  174</span>    <span class="keyword">auto</span> serviceFactory = firstServiceDescriptor.GetFactory();</div>
-<div class="line"><span class="lineno">  175</span>    <span class="keyword">auto</span> service = serviceFactory(*<span class="keyword">this</span>);</div>
-<div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span>    <span class="keywordflow">return</span> service;</div>
-<div class="line"><span class="lineno">  178</span>}</div>
+<p>Implements <a class="el" href="classDependencyInjection_1_1IServiceProvider.html#af168e4a3e636ab82d3438ad23477f87c">DependencyInjection::IServiceProvider</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>            {</div>
+<div class="line"><span class="lineno">  121</span>                <span class="keyword">const</span> <span class="keyword">auto</span> position = <a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">_services</a>.find(type);</div>
+<div class="line"><span class="lineno">  122</span>                <span class="keyword">const</span> <span class="keyword">auto</span> notFound = (position == <a class="code hl_variable" href="classDependencyInjection_1_1ServiceProvider.html#a7af86a4e3019f8b76548d89de79c408c">_services</a>.end());</div>
+<div class="line"><span class="lineno">  123</span>                <span class="keywordflow">if</span> (notFound)</div>
+<div class="line"><span class="lineno">  124</span>                {</div>
+<div class="line"><span class="lineno">  125</span>                    <span class="keywordflow">return</span> {};</div>
+<div class="line"><span class="lineno">  126</span>                }</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>                <span class="keyword">const</span> <span class="keyword">auto</span> descriptorList = position-&gt;second;</div>
+<div class="line"><span class="lineno">  129</span>                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; descriptor = descriptorList[0];</div>
+<div class="line"><span class="lineno">  130</span>                <span class="keyword">const</span> <span class="keyword">auto</span> factory = descriptor.GetFactory();</div>
+<div class="line"><span class="lineno">  131</span>                <span class="keyword">auto</span> service = factory(*<span class="keyword">this</span>);</div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>                <span class="keywordflow">return</span> service;</div>
+<div class="line"><span class="lineno">  134</span>            }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a8cba3cfae47c0b56857b4ee3be752b35" name="a8cba3cfae47c0b56857b4ee3be752b35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cba3cfae47c0b56857b4ee3be752b35">&#9670;&#160;</a></span>DependencyInjection::ServiceCollection</h2>
+<a id="acd0014a813ca86fe63766562d1b22319" name="acd0014a813ca86fe63766562d1b22319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd0014a813ca86fe63766562d1b22319">&#9670;&#160;</a></span>ServiceCollection</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +278,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="classDependencyInjection_1_1ServiceCollection.html">DependencyInjection::ServiceCollection</a></td>
+          <td class="memname">friend class <a class="el" href="classDependencyInjection_1_1ServiceCollection.html">ServiceCollection</a></td>
         </tr>
       </table>
   </td>
@@ -278,8 +291,8 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac098887bd55f0a157cef04fde6df084e" name="ac098887bd55f0a157cef04fde6df084e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac098887bd55f0a157cef04fde6df084e">&#9670;&#160;</a></span>_services</h2>
+<a id="a7af86a4e3019f8b76548d89de79c408c" name="a7af86a4e3019f8b76548d89de79c408c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7af86a4e3019f8b76548d89de79c408c">&#9670;&#160;</a></span>_services</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +301,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::type_index, std::vector&lt;<a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">DependencyInjection::ServiceDescriptor</a>&gt; &gt; DependencyInjection::ServiceProvider::_services</td>
+          <td class="memname">std::map&lt;std::type_index, std::vector&lt;<a class="el" href="classDependencyInjection_1_1ServiceDescriptor.html">ServiceDescriptor</a>&gt; &gt; DependencyInjection::ServiceProvider::_services</td>
         </tr>
       </table>
   </td>
