@@ -85,7 +85,7 @@ Examples</h1>
 <div class="line"><span class="keyword">auto</span> serviceProvider = serviceCollection.BuildServiceProvider();</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> dbConnection = serviceProvider.GetService&lt;DbConnection&gt;();</div>
-<div class="ttc" id="aclassDependencyInjection_1_1ServiceCollection_html"><div class="ttname"><a href="classDependencyInjection_1_1ServiceCollection.html">DependencyInjection::ServiceCollection</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:155</div></div>
+<div class="ttc" id="aclassDependencyInjection_1_1ServiceCollection_html"><div class="ttname"><a href="classDependencyInjection_1_1ServiceCollection.html">DependencyInjection::ServiceCollection</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:165</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
 Constructor with arguments</h1>
 <p >When a class has a constructor with arguments, then a custom service factory is needed. There are two ways to create custom service factories, an inline and a template function. </p><div class="fragment"><div class="line">serviceCollection.AddSingleton&lt;Configuration&gt;([] (<a class="code hl_class" href="classDependencyInjection_1_1IServiceProvider.html">DependencyInjection::IServiceProvider</a>&amp;)</div>
@@ -94,7 +94,7 @@ Constructor with arguments</h1>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> service;</div>
 <div class="line">});</div>
-<div class="ttc" id="aclassDependencyInjection_1_1IServiceProvider_html"><div class="ttname"><a href="classDependencyInjection_1_1IServiceProvider.html">DependencyInjection::IServiceProvider</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:88</div></div>
+<div class="ttc" id="aclassDependencyInjection_1_1IServiceProvider_html"><div class="ttname"><a href="classDependencyInjection_1_1IServiceProvider.html">DependencyInjection::IServiceProvider</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.hpp:98</div></div>
 </div><!-- fragment --><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><a class="code hl_class" href="classDependencyInjection_1_1ServiceCollection.html">DependencyInjection::ServiceCollection</a>&amp; DependencyInjection::ServiceCollection::AddSingleton&lt;Configuration&gt;()</div>
 <div class="line">{</div>
