@@ -38,16 +38,17 @@
 
 namespace DependencyInjection
 {
+    enum class ServiceLifetime : std::uint8_t;
     class IServiceProvider;
     class ServiceCollection;
 
     typedef std::function<std::any(IServiceProvider&)> ServiceFactory;
 
-    enum class ServiceLifetime : uint8_t
+    enum class ServiceLifetime : std::uint8_t
     {
-        Singleton = 0,
-        // Scoped = 1,
-        Transient = 2
+        Singleton = 0, /*!< The service is created once and reused. */
+        // Scoped = 1, /*!< The service is created once per scope. */
+        Transient = 2, /*!< The service is created each time it is requested. */
     };
 
     class ServiceDescriptor
