@@ -97,10 +97,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aac67fac48e6eedb77cafcf939bb85d5c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5c">ServiceLifetime</a> : uint8_t { <a class="el" href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5ca6ff5f73c8b5ebd311406568c8ef50bfd">Singleton</a> = 0
-, <a class="el" href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5cab1f023eff9a6b5308d6024e4c6b3d475">Transient</a> = 2
+<tr class="memitem:a7f279f0db817c28f735e980741e8e63f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63f">ServiceLifetime</a> : std::uint8_t { <a class="el" href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63fa6ff5f73c8b5ebd311406568c8ef50bfd">Singleton</a> = 0
+, <a class="el" href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63fab1f023eff9a6b5308d6024e4c6b3d475">Transient</a> = 2
  }</td></tr>
-<tr class="separator:aac67fac48e6eedb77cafcf939bb85d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a7f279f0db817c28f735e980741e8e63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >MIT License</p>
@@ -124,8 +124,8 @@ Enumerations</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="aac67fac48e6eedb77cafcf939bb85d5c" name="aac67fac48e6eedb77cafcf939bb85d5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac67fac48e6eedb77cafcf939bb85d5c">&#9670;&#160;</a></span>ServiceLifetime</h2>
+<a id="a7f279f0db817c28f735e980741e8e63f" name="a7f279f0db817c28f735e980741e8e63f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f279f0db817c28f735e980741e8e63f">&#9670;&#160;</a></span>ServiceLifetime</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +134,7 @@ Enumerations</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5c">DependencyInjection::ServiceLifetime</a> : uint8_t</td>
+          <td class="memname">enum class <a class="el" href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63f">DependencyInjection::ServiceLifetime</a> : std::uint8_t</td>
         </tr>
       </table>
   </td>
@@ -144,16 +144,18 @@ Enumerations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aac67fac48e6eedb77cafcf939bb85d5ca6ff5f73c8b5ebd311406568c8ef50bfd" name="aac67fac48e6eedb77cafcf939bb85d5ca6ff5f73c8b5ebd311406568c8ef50bfd"></a>Singleton&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aac67fac48e6eedb77cafcf939bb85d5cab1f023eff9a6b5308d6024e4c6b3d475" name="aac67fac48e6eedb77cafcf939bb85d5cab1f023eff9a6b5308d6024e4c6b3d475"></a>Transient&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7f279f0db817c28f735e980741e8e63fa6ff5f73c8b5ebd311406568c8ef50bfd" name="a7f279f0db817c28f735e980741e8e63fa6ff5f73c8b5ebd311406568c8ef50bfd"></a>Singleton&#160;</td><td class="fielddoc"><p >The service is created once and reused. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7f279f0db817c28f735e980741e8e63fab1f023eff9a6b5308d6024e4c6b3d475" name="a7f279f0db817c28f735e980741e8e63fab1f023eff9a6b5308d6024e4c6b3d475"></a>Transient&#160;</td><td class="fielddoc"><p >The service is created each time it is requested. </p>
+</td></tr>
 </table>
-<div class="fragment"><div class="line"><span class="lineno">   47</span>    {</div>
-<div class="line"><span class="lineno">   48</span>        <a class="code hl_enumvalue" href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5ca6ff5f73c8b5ebd311406568c8ef50bfd">Singleton</a> = 0,</div>
-<div class="line"><span class="lineno">   49</span>        <span class="comment">// Scoped = 1,</span></div>
-<div class="line"><span class="lineno">   50</span>        <a class="code hl_enumvalue" href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5cab1f023eff9a6b5308d6024e4c6b3d475">Transient</a> = 2</div>
-<div class="line"><span class="lineno">   51</span>    };</div>
-<div class="ttc" id="anamespaceDependencyInjection_html_aac67fac48e6eedb77cafcf939bb85d5ca6ff5f73c8b5ebd311406568c8ef50bfd"><div class="ttname"><a href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5ca6ff5f73c8b5ebd311406568c8ef50bfd">DependencyInjection::ServiceLifetime::Singleton</a></div><div class="ttdeci">@ Singleton</div></div>
-<div class="ttc" id="anamespaceDependencyInjection_html_aac67fac48e6eedb77cafcf939bb85d5cab1f023eff9a6b5308d6024e4c6b3d475"><div class="ttname"><a href="namespaceDependencyInjection.html#aac67fac48e6eedb77cafcf939bb85d5cab1f023eff9a6b5308d6024e4c6b3d475">DependencyInjection::ServiceLifetime::Transient</a></div><div class="ttdeci">@ Transient</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>    {</div>
+<div class="line"><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63fa6ff5f73c8b5ebd311406568c8ef50bfd">Singleton</a> = 0, <span class="comment">/*!&lt; The service is created once and reused. */</span></div>
+<div class="line"><span class="lineno">   50</span>        <span class="comment">// Scoped = 1, /*!&lt; The service is created once per scope. */</span></div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_enumvalue" href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63fab1f023eff9a6b5308d6024e4c6b3d475">Transient</a> = 2, <span class="comment">/*!&lt; The service is created each time it is requested. */</span></div>
+<div class="line"><span class="lineno">   52</span>    };</div>
+<div class="ttc" id="anamespaceDependencyInjection_html_a7f279f0db817c28f735e980741e8e63fa6ff5f73c8b5ebd311406568c8ef50bfd"><div class="ttname"><a href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63fa6ff5f73c8b5ebd311406568c8ef50bfd">DependencyInjection::ServiceLifetime::Singleton</a></div><div class="ttdeci">@ Singleton</div></div>
+<div class="ttc" id="anamespaceDependencyInjection_html_a7f279f0db817c28f735e980741e8e63fab1f023eff9a6b5308d6024e4c6b3d475"><div class="ttname"><a href="namespaceDependencyInjection.html#a7f279f0db817c28f735e980741e8e63fab1f023eff9a6b5308d6024e4c6b3d475">DependencyInjection::ServiceLifetime::Transient</a></div><div class="ttdeci">@ Transient</div></div>
 </div><!-- fragment -->
 </div>
 </div>
