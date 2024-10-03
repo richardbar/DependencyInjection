@@ -44,6 +44,16 @@ namespace DependencyInjection
 
     typedef std::function<std::any(IServiceProvider&)> ServiceFactory;
 
+    /**
+     * @enum ServiceLifetime
+     * @brief The lifetime of a service.
+     * 
+     * @details This enum determines how often a service is created within the application.
+     * Singleton services are created once and reused, while Transient services are created 
+     * each time they are requested.
+     * 
+     * @version 1.0
+     */
     enum class ServiceLifetime : std::uint8_t
     {
         Singleton = 0, /*!< The service is created once and reused. */
